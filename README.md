@@ -19,6 +19,7 @@ This is an application built using:
 
 1. Clone repository
 2. Set up Django server
+
 ```
 cd fullstack-developer-capstone/server
 pip install virtualenv
@@ -29,42 +30,48 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py runserver
 ```
+
 3. Build frontend
+
 ```
 cd fullstack-developer-capstone/server/frontend
 npm install
 npm run build
 ```
+
 4. Build database
+
 ```
 cd fullstack-developer-capstone/server/database
 docker build . -t nodeapp
 docker-compose up
 ```
+
 5. Deploy backend APIs (using IBM Code Engine)
+
 ```
 cd fullstack-developer-capstone/server/djangoapp/microservices
 docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
 docker push us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
 ibmcloud ce application create --name sentianalyzer --image us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer --registry-secret icr-secret --port 5000
 ```
+
 6. Update .env
 
 ## 📹 Screenshots
 
 ### Homepage
 
-![Homepage](/screenshot1.png)
+![Homepage](/screenshots/screenshot1.png)
 
 ### Dealers
 
-![Dealers](/screenshot2.png)
+![Dealers](/screenshots/screenshot2.png)
 
 ### Add Review
 
-![Add Review](/screenshot3.png)
+![Add Review](/screenshots/screenshot3.png)
 
 ### Reviews
 
-![Reviews](/screenshot4.png)
-
+![Reviews](/screenshots/screenshot4.png)
